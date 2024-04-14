@@ -1,19 +1,17 @@
-# WebGL Boilerplate
+# Adding Rotation Matrices to a Triangle in WebGL
 
-This repository, `WebGL_BoilerPlate`, contains the boilerplate code that will be the foundation for all my future WebGL projects.
+1. **Create a Function to Multiply Matrices**: This function takes two matrices as input and returns the result of their multiplication.
 
-## Overview
+2. **Define Uniform for Matrix**: In your vertex shader, define a uniform mat4 variable. This will be used to apply the rotation matrix to each vertex of the triangle.
 
-The boilerplate code in this repository is essentially a simple triangle rendered using WebGL. It serves as a starting point for more complex WebGL projects, providing the basic structure and error checking code that are common across such projects.
+3. **Get Uniform Location**: In your JavaScript code, get the location of the uniform variable you defined in the vertex shader.
 
-## Features
+4. **Define Rotation Angle**: Define a variable to hold the rotation angle. This will be incremented in your animation loop to create the rotation effect.
 
-- **Simple Triangle**: The boilerplate code includes the implementation of a simple triangle in WebGL. This serves as a basic example of how to render a shape using WebGL.
+5. **Create Rotation Matrices**: In your animation loop, create the rotation matrices. You'll need separate matrices for rotation around the X, Y, and Z axes.
 
-- **Error Checking**: The code includes robust error checking mechanisms. This helps in identifying and handling potential issues that may arise during the execution of WebGL code.
+6. **Multiply Matrices**: Still in your animation loop, use the multiplyMatrices function to multiply your rotation matrices together. This will give you a final rotation matrix that combines the rotations around all three axes.
 
-## Usage
+7. **Send Matrix to Uniform**: Finally, send the final rotation matrix to the uniform variable in the vertex shader using the gl.uniformMatrix4fv function. This applies the rotation to each vertex of the triangle, causing the triangle to rotate in your WebGL scene.
 
-To use this boilerplate for your WebGL projects, simply clone this repository and build upon the provided code.
-
-
+Remember, you can control which rotations are applied by choosing which matrices to multiply and send to the uniform. For example, if you only want to rotate around the X-axis, only send the X rotation matrix to the uniform.
